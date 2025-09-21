@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System - Academics</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./client/css/academics.css">
+    <link rel="stylesheet" href="./client/css/style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-school"></i> SchoolSys</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="./index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="./students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+                <li><a href="./teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+                <li class="active"><a href="./academics.html"><i class="fas fa-book"></i> Academics</a></li>
+                <li><a href="./marks.html"><i class="fas fa-marker"></i> Marks Entry</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Academics Management</h1>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin</span>
+                </div>
+            </header>
+
+            <!-- Section 1: Manage Subjects -->
+            <div class="content-section table-container">
+                <div class="table-header">
+                    <h3>Manage Subjects</h3>
+                    <button class="btn btn-primary" id="add-subject-btn"><i class="fas fa-plus"></i> Add New Subject</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Subject Name</th>
+                            <th>Subject Code</th>
+                            <th>Department</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subjects-table-body">
+                        <!-- Subject rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 2: Manage Classes -->
+            <div class="content-section table-container">
+                <div class="table-header">
+                    <h3>Manage Classes</h3>
+                    <button class="btn btn-primary" id="add-class-btn"><i class="fas fa-plus"></i> Add New Class</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="classes-table-body">
+                        <!-- Class rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 3: Subject Assignments -->
+            <div class="content-section table-container">
+                <div class="table-header">
+                    <h3>Class-Subject Assignments</h3>
+                    <div class="assignment-controls">
+                        <label for="class-filter">Select Class:</label>
+                        <select id="class-filter"></select>
+                        <button class="btn btn-primary" id="assign-subject-btn"><i class="fas fa-link"></i> Assign Subject</button>
+                    </div>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Assigned Teacher</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="assignments-table-body">
+                        <!-- Assignment rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals for Add/Edit -->
+    <!-- Subject Modal -->
+    <div id="subject-modal" class="modal"><div class="modal-content"><div class="modal-header"><h3 id="subject-modal-title">Add Subject</h3><button class="close-btn">&times;</button></div><form id="subject-form"><input type="hidden" id="subject-id"><div class="form-group"><label for="subject-name">Subject Name</label><input type="text" id="subject-name" required></div><div class="form-group"><label for="subject-code">Subject Code</label><input type="text" id="subject-code" required></div><div class="form-group"><label for="subject-department">Department</label><select id="subject-department" required><option value="Science">Science</option><option value="Arts">Arts</option><option value="Mathematics">Mathematics</option><option value="Other">Other</option></select></div><div class="form-actions"><button type="submit" class="btn btn-primary">Save Subject</button></div></form></div></div>
+    <!-- Class Modal -->
+    <div id="class-modal" class="modal"><div class="modal-content"><div class="modal-header"><h3 id="class-modal-title">Add Class</h3><button class="close-btn">&times;</button></div><form id="class-form"><input type="hidden" id="class-id"><div class="form-group"><label for="class-name">Class Name</label><input type="text" id="class-name" placeholder="e.g., Grade 10A" required></div><div class="form-actions"><button type="submit" class="btn btn-primary">Save Class</button></div></form></div></div>
+    <!-- Assignment Modal -->
+    <div id="assignment-modal" class="modal"><div class="modal-content"><div class="modal-header"><h3>Assign Subject to <span id="assign-class-name"></span></h3><button class="close-btn">&times;</button></div><form id="assignment-form"><div class="form-group"><label for="assign-subject">Subject</label><select id="assign-subject" required></select></div><div class="form-group"><label for="assign-teacher">Teacher</label><select id="assign-teacher" required></select></div><div class="form-actions"><button type="submit" class="btn btn-primary">Save Assignment</button></div></form></div></div>
+
+    <script src="./client/js/academics.js"></script>
+</body>
+</html>

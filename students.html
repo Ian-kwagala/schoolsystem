@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System - Students</title>
+    
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./client/css/style.css">
+    <link rel="stylesheet" href="./client/css/students.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-school"></i> SchoolSys</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <!-- Link to dashboard.html -->
+                <li><a href="./index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="active"><a href="./students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+                <li><a href="./teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+                <li><a href="./academics.html"><i class="fas fa-book"></i> Academics</a></li>
+                <li><a href="./marks.html"><i class="fas fa-marker"></i> Marks Entry</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Student Management</h1>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin</span>
+                </div>
+            </header>
+
+            <!-- Summary Tiles -->
+            <div class="summary-cards">
+                <div class="card students-card">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <div class="card-info">
+                        <h2 id="total-students">0</h2>
+                        <p>Total Students</p>
+                    </div>
+                </div>
+                <div class="card boys-card">
+                    <div class="card-icon"><i class="fas fa-male"></i></div>
+                    <div class="card-info">
+                        <h2 id="total-boys">0</h2>
+                        <p>Total Boys</p>
+                    </div>
+                </div>
+                <div class="card girls-card">
+                    <div class="card-icon"><i class="fas fa-female"></i></div>
+                    <div class="card-info">
+                        <h2 id="total-girls">0</h2>
+                        <p>Total Girls</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Table Section -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>All Students</h3>
+                    <div class="table-controls">
+                        <input type="search" id="search-input" placeholder="Search students...">
+                        <button class="btn btn-primary" id="add-student-btn"><i class="fas fa-plus"></i> Add New Student</button>
+                    </div>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Full Name</th>
+                            <th>Class</th>
+                            <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-table-body">
+                        <!-- Student rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Student Modal -->
+    <div id="student-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Add New Student</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="student-form">
+                <input type="hidden" id="student-id">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="class">Class</label>
+                    <select id="class" required>
+                        <option value="Grade 6">Grade 6</option>
+                        <option value="Grade 7">Grade 7</option>
+                        <option value="Grade 8">Grade 8</option>
+                        <option value="Grade 9">Grade 9</option>
+                        <option value="Grade 10">Grade 10</option>
+                        <option value="Grade 11">Grade 11</option>
+                        <option value="Grade 12">Grade 12</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="./client/js/students.js"></script>
+</body>
+</html>

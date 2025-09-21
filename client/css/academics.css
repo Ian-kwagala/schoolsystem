@@ -1,0 +1,31 @@
+/* --- Academics page tweaks to match redesign variables --- */
+
+.content-section {
+    margin-bottom: 32px;
+    background: transparent;
+}
+
+.assignment-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.assignment-controls label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.assignment-controls select {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.assignment-controls select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
